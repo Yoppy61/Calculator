@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <!--起動時画面-->
+    <string name="calculator_button_label">電卓</string>
+    <!--電卓画面-->
+
+
+</resources>
