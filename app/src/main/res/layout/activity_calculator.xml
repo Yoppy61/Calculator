@@ -6,33 +6,37 @@
     android:background="@color/lightSteelBlue"
     app:layout_constraintHorizontal_chainStyle="spread">
 
-    <!--テスト表示用文字列 "test" は削除予定-->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/calculate_area"
+    <HorizontalScrollView
         android:layout_width="@dimen/calculation_result_area_width"
         android:layout_height="@dimen/calculation_result_area_height"
-        android:gravity="right"
-        android:text="test"
-        android:textSize="@dimen/text_size"
+        android:id="@+id/scroll_area"
+        android:background="@color/white"
+        android:layoutDirection="rtl"
         app:layout_constraintBottom_toTopOf="@id/output_area"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-    />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/calculate_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size"
+            android:layoutDirection="rtl"/>
+    </HorizontalScrollView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/output_area"
         android:layout_width="@dimen/calculation_result_area_width"
         android:layout_height="@dimen/calculation_result_area_height"
         android:gravity="right"
-        android:text="test"
         android:textSize="@dimen/text_size"
         app:layout_constraintBottom_toTopOf="@id/spacer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calculate_area" />
+        app:layout_constraintTop_toBottomOf="@id/scroll_area" />
 
     <Space
         android:id="@+id/spacer"
