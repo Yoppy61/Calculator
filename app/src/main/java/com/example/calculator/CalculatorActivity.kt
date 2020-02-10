@@ -207,21 +207,20 @@ class CalculatorActivity : AppCompatActivity() {
         }
 
         equalButton.setOnClickListener {
-            if(inputData01StringBuilder.toString() != "" && inputData02StringBuilder.toString() != "") {
+            if (inputData01StringBuilder.toString() != "" && inputData02StringBuilder.toString() != "") {
                 val inputData01String: String = inputData01StringBuilder.toString()
                 val inputData02String: String = inputData02StringBuilder.toString()
-                var intResult = 0
                 var doubleResult = 0.0
-                if (isDotExist) {
-                    val inputData01Double = inputData01String.toDouble()
-                    val inputData02Double = inputData02String.toDouble()
-                    when (operatorType) {
-                        " ÷ " -> doubleResult = inputData01Double / inputData02Double
-                        " × " -> doubleResult = inputData01Double * inputData02Double
-                        " - " -> doubleResult = inputData01Double - inputData02Double
-                        " + " -> doubleResult = inputData01Double + inputData02Double
-                    }
-                    if (doubleResult.toString().length > 10) {
+                val inputData01Double = inputData01String.toDouble()
+                val inputData02Double = inputData02String.toDouble()
+                when (operatorType) {
+                    " ÷ " -> doubleResult = inputData01Double / inputData02Double
+                    " × " -> doubleResult = inputData01Double * inputData02Double
+                    " - " -> doubleResult = inputData01Double - inputData02Double
+                    " + " -> doubleResult = inputData01Double + inputData02Double
+                }
+                if (!isDotExist) {
+                    if (doubleResult.toString().length > 9) {
                         outputAreaText.text = outputError
                     } else {
                         if (doubleResult % 1.0 == 0.0) {
@@ -231,18 +230,19 @@ class CalculatorActivity : AppCompatActivity() {
                         }
                     }
                 } else {
-                    val inputData01: Int = Integer.parseInt(inputData01String)
-                    val inputData02: Int = Integer.parseInt(inputData02String)
-                    when (operatorType) {
-                        " ÷ " -> intResult = inputData01 / inputData02
-                        " × " -> intResult = inputData01 * inputData02
-                        " - " -> intResult = inputData01 - inputData02
-                        " + " -> intResult = inputData01 + inputData02
+                    if (doubleResult.toString().length > 10) {
+                        outputAreaText.text = outputError
+                    } else {
+                        if (doubleResult % 1.0 == 0.0) {
+                            outputAreaText.text = doubleResult.toInt().toString()
+                        } else {
+                            outputAreaText.text = doubleResult.toString()
+                        }
                     }
-                    outputAreaText.text = intResult.toString()
                 }
             }
         }
+
 
         deleteButton.setOnClickListener {
             calculateAreaText.text = ""

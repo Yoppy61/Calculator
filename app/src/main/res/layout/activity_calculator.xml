@@ -22,8 +22,7 @@
             android:id="@+id/calculate_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size"
-            android:layoutDirection="rtl"/>
+            android:textSize="@dimen/text_size"/>
     </HorizontalScrollView>
 
     <androidx.appcompat.widget.AppCompatTextView
