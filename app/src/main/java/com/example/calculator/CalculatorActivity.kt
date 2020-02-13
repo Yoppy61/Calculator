@@ -104,6 +104,7 @@ class CalculatorActivity : AppCompatActivity() {
                 calculateAreaText.text = calculateAreaStringBuilder
             }
         }
+
         button04.setOnClickListener {
             if (operatorType == "") {
                 buttonNum = 4
@@ -242,7 +243,6 @@ class CalculatorActivity : AppCompatActivity() {
                 }
             }
         }
-
 
         deleteButton.setOnClickListener {
             calculateAreaText.text = ""
